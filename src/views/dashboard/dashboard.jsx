@@ -22,8 +22,8 @@ const Dashboard = () => {
   const handleNewReport = () => {};
 
   return (
-    <div className="flex justify-center bg-white">
-      <div className="max-w-[1440px] w-full flex">
+    <div className="flex justify-start bg-white min-h-[100vh] h-full">
+      <div className="max-w-[2500px] w-full flex">
         <aside className="w-[280px] bg-[#F4F6F3] p-4 py-8 border-r min-h-screen">
           <Image
             src="/assets/logo-horizontal.svg"
@@ -70,7 +70,7 @@ const Dashboard = () => {
             </h1>
             <div className="flex space-x-4">
               <SearchInput />
-              <button className="border border-[#E4E4E7] px-4 w-fit h-fit py-[10px] rounded-full text-[#27272A] font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
+              <button className="border border-[#E4E4E7] px-4 w-fit h-fit py-[12px] rounded-full text-[#27272A] font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
                 <Filter /> <span>Filter</span>
               </button>
               <Button
@@ -130,7 +130,7 @@ const Dashboard = () => {
                         </MenuHandler>
                         <MenuList>
                           {select_items?.map((item) => (
-                            <MenuItem>
+                            <MenuItem key={item?.title}>
                               <div className="font-mulish font-semibold text-sm text-primary flex items-center gap-2 hover:text-secondary">
                                 {item?.icon} <span>{item?.title}</span>
                               </div>

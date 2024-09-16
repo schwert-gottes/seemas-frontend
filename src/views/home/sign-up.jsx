@@ -4,12 +4,12 @@ import Link from "next/link";
 
 const SignUp = () => {
   return (
-    <div className="flex justify-center bg-white">
+    <div className="flex justify-center bg-white min-h-[100vh] h-full">
       <div className="max-w-[1440px] w-full flex justify-between gap-12 py-8 px-4 sm:px-8">
         <div className="flex flex-col justify-between gap-12 lg:w-[40%]">
           <Image src="/assets/logo.svg" alt="logo" width={100} height={56} />
           <div>
-            <h1 className="text-primary font-mulish font-bold text-[32px]">
+            <h1 className="text-primary font-mulish font-semibold text-[32px]">
               Create account
             </h1>
             <p className="text-[#52525B] font-mulish font-medium text-base mb-8">
@@ -64,8 +64,8 @@ const SignUp = () => {
           <Image
             src="/assets/content.svg"
             alt="content"
-            width={792}
-            height={804}
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
