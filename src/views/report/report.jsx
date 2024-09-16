@@ -48,16 +48,16 @@ const Report = () => {
             </h1>
             <p className="text-[#52525B] font-mulish font-medium text-sm mt-3">
               2024-08-17{" "}
-              <span className="border-l border-[#E4E4E7] pl-2 ml-1">
+              <span className="border-l border-[#E4E4E7] text-[#52525B] pl-2 ml-1">
                 France
               </span>
             </p>
           </div>
           <div className="flex space-x-3 flex-wrap gap-y-4">
-            <button className="bg-[#F4F6F3] px-4 h-fit w-fit py-[10px] rounded-full text-[#27272A] font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
+            <button className="bg-[#F4F6F3] px-4 h-fit w-fit py-[10px] rounded-full text-primary font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
               <Excel /> <span>Export Analysis (Excel)</span>
             </button>
-            <button className="bg-[#F4F6F3] px-4 w-fit h-fit py-[10px] rounded-full text-[#27272A] font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
+            <button className="bg-[#F4F6F3] px-4 w-fit h-fit py-[10px] rounded-full text-primary font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
               <Pdf /> <span>Export PDF</span>
             </button>
           </div>

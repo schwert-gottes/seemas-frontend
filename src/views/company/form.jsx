@@ -98,10 +98,10 @@ const FormStep = () => {
           {step === 1 && (
             <div className="flex flex-col h-full justify-between gap-8">
               <div>
-                <h1 className="text-[32px] font-mulish mt-4 mb-8 font-bold">
+                <h1 className="text-[32px] font-mulish mt-4 mb-8 font-bold text-primary">
                   Create your first report
                 </h1>
-                <p className="font-mulish font-bold text-[20px]">
+                <p className="font-mulish font-bold text-[20px] text-primary">
                   What is the Company name?
                 </p>
                 <div className="mt-3">
@@ -132,13 +132,13 @@ const FormStep = () => {
               }`}
             >
               <div>
-                <h1 className="text-[32px] font-mulish mt-4 mb-8 font-bold">
+                <h1 className="text-[32px] font-mulish mt-4 mb-8 font-bold text-primary">
                   Create your first report
                 </h1>
-                <p className="font-mulish font-bold text-[20px]">
+                <p className="font-mulish font-bold text-[20px] text-primary">
                   Upload Company Financials
                 </p>
-                <p className="font-mulish font-medium text-[16px] mb-4 mt-[4px]">
+                <p className="font-mulish font-medium text-[16px] mb-4 mt-[4px] text-[#3F3F46]">
                   The financials should include a balance sheet, income
                   statement, and ownership structure.
                 </p>
