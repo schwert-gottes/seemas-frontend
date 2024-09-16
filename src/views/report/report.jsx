@@ -21,7 +21,7 @@ const Report = () => {
   const handleEdit = () => {};
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-white">
       <div className="max-w-[1440px] w-full py-4 px-4 lg:px-8 sm:px-12">
         <div className="flex justify-between lg:items-center flex-col gap-y-6 md:flex-row border-b border-[#D4D4D8] pb-4">
           <div className="flex gap-2">

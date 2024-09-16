@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SignUp = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-white">
       <div className="max-w-[1440px] w-full flex justify-between gap-12 py-8 px-4 sm:px-8">
         <div className="flex flex-col justify-between gap-12 lg:w-[40%]">
           <Image src="/assets/logo.svg" alt="logo" width={100} height={56} />

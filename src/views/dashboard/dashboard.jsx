@@ -34,7 +34,7 @@ const Dashboard = () => {
   const handleNewReport = () => {};
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-white">
       <div className="max-w-[1440px] w-full flex">
         <aside className="w-[280px] bg-[#F4F6F3] p-4 py-8 border-r min-h-screen">
           <Image
