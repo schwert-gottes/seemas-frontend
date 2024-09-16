@@ -9,7 +9,7 @@ const SignUp = () => {
         <div className="flex flex-col justify-between gap-12 lg:w-[40%]">
           <Image src="/assets/logo.svg" alt="logo" width={100} height={56} />
           <div>
-            <h1 className="text-primary font-mulish font-semibold text-[32px]">
+            <h1 className="text-primary font-mulish font-bold text-[32px]">
               Create account
             </h1>
             <p className="text-[#52525B] font-mulish font-medium text-base mb-8">
