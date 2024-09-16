@@ -1,4 +1,12 @@
-import { Average, Company } from "@/icons";
+import {
+  Average,
+  Company,
+  Delete,
+  Excel,
+  ExportExcel,
+  ExportPdf,
+  Pdf,
+} from "@/icons";
 
 export const page_links = [
   {
@@ -30,6 +38,17 @@ export const statistics = [
       { title: "Industry Beta", value: "0.76" },
       { title: "Subsidiary Beta", value: "1.07" },
     ],
+  },
+];
+
+export const export_btn = [
+  {
+    icon: <Excel />,
+    title: "Export Analysis (Excel)",
+  },
+  {
+    icon: <Pdf />,
+    title: "Export PDF",
   },
 ];
 
@@ -169,5 +188,20 @@ export const reports = [
     type: "Company value",
     country: "India",
     date: "07/05/2016",
+  },
+];
+
+export const select_items = [
+  {
+    icon: <ExportExcel />,
+    title: "Export Analysis (Excel)",
+  },
+  {
+    icon: <ExportPdf />,
+    title: "Export PDF",
+  },
+  {
+    icon: <Delete />,
+    title: "Remove",
   },
 ];

@@ -8,25 +8,13 @@ import {
   MenuItem,
   Button as MButton,
 } from "@material-tailwind/react";
-import { reports, reports_header } from "@/constants/data";
-import {
-  Bell,
-  Delete,
-  ExportExcel,
-  ExportPdf,
-  Filter,
-  Order,
-  Reports,
-  Search,
-  Team,
-  ThreeDots,
-} from "@/icons";
-import { Button } from "@/components";
+import { reports, reports_header, select_items } from "@/constants/data";
+import { Bell, Filter, Order, Reports, Team, ThreeDots } from "@/icons";
+import { Button, SearchInput, TableData } from "@/components";
 
 const Dashboard = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // Toggle dropdown for each row
   const toggleDropdown = (index) => {
     setActiveDropdown((prev) => (prev === index ? null : index));
   };
@@ -63,16 +51,7 @@ const Dashboard = () => {
 
         <main className="flex-1 px-6">
           <div className="flex justify-between items-center py-4 border-b border-[#E4E4E7]">
-            <div className="relative w-[270px]">
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-[270px] py-2 pl-10 pr-4 bg-[#F4F6F3] rounded-full focus:outline-none"
-              />
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <Search />
-              </div>
-            </div>
+            <SearchInput isBackground />
             <div className="flex gap-4 items-center">
               <div className="border-r border-[#E4E4E7] pr-8 h-fit">
                 <Bell />
@@ -90,16 +69,7 @@ const Dashboard = () => {
               Reports
             </h1>
             <div className="flex space-x-4">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search by company name"
-                  className="w-[270px] py-[10px] pl-10 pr-4 border border-[#E4E4E7] rounded-full focus:outline-none"
-                />
-                <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                  <Search />
-                </div>
-              </div>
+              <SearchInput />
               <button className="border border-[#E4E4E7] px-4 w-fit h-fit py-[10px] rounded-full text-[#27272A] font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
                 <Filter /> <span>Filter</span>
               </button>
@@ -116,7 +86,7 @@ const Dashboard = () => {
                 <tr className="text-left rounded-t-[16px] border-b border-[#E4E4E7]">
                   {reports_header?.map((item, index) => (
                     <th
-                      key={index}
+                      key={item}
                       className={`px-3 py-3 text-[14px] font-medium text-[#52525B] ${
                         index === 0 ? "rounded-tl-lg" : "" // Left corner
                       } ${
@@ -136,21 +106,17 @@ const Dashboard = () => {
               <tbody>
                 {reports.map((company, idx) => (
                   <tr
-                    key={idx}
+                    key={company?.name}
                     className="text-[#D4D4D4] hover:text-primary hover:bg-[#F6F9F6] cursor-pointer"
                   >
-                    <td className="px-3 py-6 font-mulish font-bold text-sm text-primary">
-                      {company.name}
-                    </td>
-                    <td className="px-3 py-6 font-mulish font-medium text-sm text-[#52525B]">
-                      {company.type}
-                    </td>
-                    <td className="px-3 py-6 font-mulish font-medium text-sm text-primary">
-                      {company.country}
-                    </td>
-                    <td className="px-3 py-6 font-mulish font-medium text-sm text-[#18181B]">
-                      {company.date}
-                    </td>
+                    <TableData
+                      text={company?.name}
+                      color="text-primary"
+                      isBold
+                    />
+                    <TableData text={company?.type} color="text-[#52525B]" />
+                    <TableData text={company?.country} color="text-primary" />
+                    <TableData text={company?.date} color="text-[#18181B]" />
                     <td className="py-3 px-4 text-right relative">
                       <Menu
                         open={activeDropdown === idx}
@@ -163,22 +129,13 @@ const Dashboard = () => {
                           </MButton>
                         </MenuHandler>
                         <MenuList>
-                          <MenuItem>
-                            <div className="font-mulish font-semibold text-sm text-primary flex items-center gap-2 hover:text-secondary">
-                              <ExportExcel />{" "}
-                              <span>Export Analysis (Excel)</span>
-                            </div>
-                          </MenuItem>
-                          <MenuItem>
-                            <div className="font-mulish font-semibold text-sm text-primary flex items-center gap-2 hover:text-secondary">
-                              <ExportPdf /> <span>Export PDF</span>
-                            </div>
-                          </MenuItem>
-                          <MenuItem>
-                            <div className="font-mulish font-semibold text-sm text-primary flex items-center gap-2 hover:text-secondary">
-                              <Delete /> <span>Remove</span>
-                            </div>
-                          </MenuItem>
+                          {select_items?.map((item) => (
+                            <MenuItem>
+                              <div className="font-mulish font-semibold text-sm text-primary flex items-center gap-2 hover:text-secondary">
+                                {item?.icon} <span>{item?.title}</span>
+                              </div>
+                            </MenuItem>
+                          ))}
                         </MenuList>
                       </Menu>
                     </td>

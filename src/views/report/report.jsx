@@ -2,9 +2,14 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Button } from "@/components";
+import { Button, TableData } from "@/components";
 import { Excel, OpenDrawer, Order, Pdf, Tooltip } from "@/icons";
-import { statistics, companies, companies_header } from "@/constants/data";
+import {
+  statistics,
+  companies,
+  companies_header,
+  export_btn,
+} from "@/constants/data";
 import RightDrawer from "./drawer";
 
 const Report = () => {
@@ -54,19 +59,21 @@ const Report = () => {
             </p>
           </div>
           <div className="flex space-x-3 flex-wrap gap-y-4">
-            <button className="bg-[#F4F6F3] px-4 h-fit w-fit py-[10px] rounded-full text-primary font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
-              <Excel /> <span>Export Analysis (Excel)</span>
-            </button>
-            <button className="bg-[#F4F6F3] px-4 w-fit h-fit py-[10px] rounded-full text-primary font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center">
-              <Pdf /> <span>Export PDF</span>
-            </button>
+            {export_btn?.map((item) => (
+              <button
+                key={item?.title}
+                className="bg-[#F4F6F3] px-4 h-fit w-fit py-[10px] rounded-full text-primary font-semibold text-sm font-mulish text-nowrap transition-all duration-300 scale-1 hover:scale-[1.025] flex gap-2 items-center"
+              >
+                {item?.icon} <span>{item?.title}</span>
+              </button>
+            ))}
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8">
-          {statistics?.map((item, index) => (
+          {statistics?.map((item) => (
             <div
-              key={index}
+              key={item?.title}
               className="p-6 border border-[#E4E4E7] rounded-[16px] hover:shadow-[6px_4px_14px_1px_#dcdcdc] scale-1 hover:scale-[1.025] transition-all duration-500"
             >
               <div className="flex justify-between flex-col sm:flex-row gap-y-4 gap-4 mb-8 items-center">
@@ -82,9 +89,9 @@ const Report = () => {
                 </p>
               </div>
               <div className="flex gap-2 flex-col sm:flex-row">
-                {item?.data?.map((item2, index2) => (
+                {item?.data?.map((item2) => (
                   <div
-                    key={index2}
+                    key={item?.title}
                     className={`bg-[#F6F9F6] px-2 py-4 rounded-[8px] flex-1`}
                   >
                     <p className="font-mulish font-semibold text-xs text-[#52525B] mb-2">
@@ -109,7 +116,7 @@ const Report = () => {
               <tr className="text-left rounded-t-[16px] border-b border-[#E4E4E7]">
                 {companies_header?.map((item, index) => (
                   <th
-                    key={index}
+                    key={item}
                     className={`px-3 py-3 text-[14px] font-medium text-[#52525B] ${
                       index === 0 ? "rounded-tl-lg" : ""
                     } ${
@@ -128,27 +135,20 @@ const Report = () => {
               </tr>
             </thead>
             <tbody>
-              {companies.map((company, idx) => (
+              {companies.map((company) => (
                 <tr
-                  key={idx}
+                  key={company.name}
                   className="text-[#D4D4D4] hover:text-primary hover:bg-[#F6F9F6] cursor-pointer"
                   onClick={toggleMenu}
                 >
-                  <td className="px-3 py-6 font-mulish font-bold text-sm text-primary">
-                    {company.name}
-                  </td>
-                  <td className="px-3 py-6 font-mulish font-medium text-sm text-[#52525B]">
-                    {company.description}
-                  </td>
-                  <td className="px-3 py-6 font-mulish font-medium text-sm text-primary">
-                    {company.country}
-                  </td>
-                  <td className="px-3 py-6 font-mulish font-medium text-sm text-[#18181B]">
-                    {company.debt}
-                  </td>
-                  <td className="px-3 py-6 font-mulish font-medium text-sm text-[#18181B]">
-                    {company.beta}
-                  </td>
+                  <TableData text={company?.name} color="text-primary" isBold />
+                  <TableData
+                    text={company?.description}
+                    color="text-[#52525B]"
+                  />
+                  <TableData text={company?.country} color="text-primary" />
+                  <TableData text={company?.debt} color="text-[#18181B]" />
+                  <TableData text={company?.beta} color="text-[#18181B]" />
                   <td className="px-3 py-6">
                     <OpenDrawer />
                   </td>
