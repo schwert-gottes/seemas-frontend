@@ -1,9 +1,9 @@
-import { SignUp } from "@/views/home";
+import { Form } from "@/views/company";
 
 export async function metadata() {
   return {
-    title: "Semmas",
-    description: "Semmas sign up",
+    title: "Company",
+    description: "Company name and finance",
     icons: {
       icon: [
         {
@@ -18,7 +18,7 @@ export async function metadata() {
 const Page = () => {
   return (
     <div>
-      <SignUp />
+      <Form />
     </div>
   );
 };

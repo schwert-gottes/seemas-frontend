@@ -1,9 +1,9 @@
-import { SignUp } from "@/views/home";
+import { Report } from "@/views/report";
 
 export async function metadata() {
   return {
-    title: "Semmas",
-    description: "Semmas sign up",
+    title: "Report",
+    description: "Report preview",
     icons: {
       icon: [
         {
@@ -18,7 +18,7 @@ export async function metadata() {
 const Page = () => {
   return (
     <div>
-      <SignUp />
+      <Report />
     </div>
   );
 };
